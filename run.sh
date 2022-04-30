@@ -1,0 +1,1 @@
+gunicorn -w 1 -b 0.0.0.0:8080 "application:initialize_app(testing=False)" --timeout 9600 --preload  --access-logfile access.log --error-logfile error.log --log-level 'error'

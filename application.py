@@ -1,6 +1,7 @@
 from flask import Flask
 import toml
 from app.posts.routs import posts
+from app.weather.routs import weather
 #from app.posts.models import db
 from flask_cors import CORS
 
@@ -11,6 +12,7 @@ def initialize_app(testing: bool = False):
     #db.init_app(app)
     # Register Blueprints here
     app.register_blueprint(posts)
+    app.register_blueprint(weather)
 
 
     @app.route('/', methods = ["GET"])

@@ -15,6 +15,7 @@ bson = "^0.5.10"
 cmake = "^3.22.4"
 psycopg2-binary = "^2.9.3"
 psycopg2 = "^2.9.3"
+python-dotenv = "^0.20.0"
 
 [tool.poetry.dev-dependencies]
 

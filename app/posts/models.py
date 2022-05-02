@@ -1,12 +1,12 @@
+from datetime import datetime
 from sqlalchemy import create_engine
-from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import sessionmaker
 from app.utils.response_utils import throw_error
 from app.utils.env_variables import SQLALCHEMY_DATABASE_URI, POSTS_TABLE
-
+from app.utils.common import seconds_to_text
 #db = SQLAlchemy()
 
-class PostGresDb():
+class PostGresDb:
     # TODO: Create Destructor for closing session
     def __init__(self):
         self.engine = create_engine(SQLALCHEMY_DATABASE_URI)
@@ -41,7 +41,7 @@ class PostGresDb():
         if page < 1:
             return []
         current_coordinate = f'{lon}, {lat}'
-        query = f"select id as Serial_Num, Message, ('{current_coordinate}' <-> Location) as Distance, Posted_At, EXTRACT(EPOCH FROM(CURRENT_TIMESTAMP - Posted_At)) as time_difference from {POSTS_TABLE} order by distance ASC, time_difference ASC OFFSET {per_page*(page-1)} LIMIT {per_page};"
+        query = f"select id as Serial_Num, Message, ('{current_coordinate}' <-> Location) as Distance, Posted_At from {POSTS_TABLE} order by distance ASC, Posted_At DESC OFFSET {per_page*(page-1)} LIMIT {per_page};"
         rows = self.session.execute(query)
         posts_data = []
         for row in rows:
@@ -50,6 +50,7 @@ class PostGresDb():
             temp_dict['Message'] = row[1]
             temp_dict['Distance'] = row[2]
             temp_dict['Posted_At'] = row[3]
-            temp_dict['Time_Difference'] = row[4]
+            tf = datetime.now()-row[3]
+            temp_dict['Time_Stamp'] = seconds_to_text(tf.total_seconds())
             posts_data.append(temp_dict)
         return posts_data

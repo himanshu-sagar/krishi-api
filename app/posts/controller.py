@@ -2,7 +2,7 @@ from app.posts.models import PostGresDb
 from app.utils.response_utils import throw_error, throw_response
 
 pg = PostGresDb()
-class PostsController():
+class PostsController:
     def push_posts_to_db(post_data):
         if not post_data:
             throw_error(status = 422,message = "No payload found")

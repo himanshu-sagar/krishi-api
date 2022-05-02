@@ -3,6 +3,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from app.utils.response_utils import throw_error
 from app.utils.env_variables import SQLALCHEMY_DATABASE_URI, POSTS_TABLE
+from app.utils.common import validate_and_format_coordinates
 from app.utils.common import seconds_to_text
 #db = SQLAlchemy()
 
@@ -28,6 +29,10 @@ class PostGresDb:
 
     def insert_one(self, message, lat, lon):
         try:
+            # validate if coordinates are correct
+            lat, lon = validate_and_format_coordinates(lat, lon)
+            if lat == None or lon == None:
+                return throw_error(message = "Invalid Coordinates", error= "Validation Error", status=422)
             location = str((lon, lat))
             query = f"INSERT INTO {POSTS_TABLE} (Message, Posted_At, Location) VALUES ('{message}', CURRENT_TIMESTAMP, '{location}')"
             self.execute_query(query)
@@ -50,7 +55,7 @@ class PostGresDb:
             temp_dict['Message'] = row[1]
             temp_dict['Distance'] = row[2]
             temp_dict['Posted_At'] = row[3]
-            tf = datetime.now()-row[3]
+            tf = datetime.utcnow()-row[3]
             temp_dict['Time_Stamp'] = seconds_to_text(tf.total_seconds())
             posts_data.append(temp_dict)
         return posts_data

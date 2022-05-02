@@ -1,6 +1,5 @@
 import flask
 from flask import json
-#from bson import json_util
 
 def jsonify_and_cors(data, status_code=200):
     response = flask.jsonify(data)

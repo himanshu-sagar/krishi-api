@@ -35,7 +35,7 @@ class PostGresDb:
         except Exception as e:
             return throw_error(message = str(e))
         
-        return "1 Row Inserted SuccessFully"
+        return "Your Post Inserted SuccessFully"
 
     def get_data_per_page(self, lat, lon, page, per_page):
         if page < 1:

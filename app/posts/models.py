@@ -21,7 +21,7 @@ class PostGresDb:
 
     def create_table(self):
         #try:
-        query = f"CREATE TABLE IF NOT EXISTS {POSTS_TABLE} (id serial PRIMARY KEY, Message varchar, Posted_At TIMESTAMP, Location point);"
+        query = f"CREATE TABLE IF NOT EXISTS {POSTS_TABLE} (id serial PRIMARY KEY, Message text, Posted_At TIMESTAMP, Location point);"
         self.execute_query(query)
         #except Exception as e:
             #return throw_error(message = str(e))

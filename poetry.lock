@@ -315,8 +315,8 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 
 [metadata]
 lock-version = "1.1"
-python-versions = "^3.8"
-content-hash = "272300ba74cd639319d1cd5d379e9119a561151414cd0baba24bd384d30d52ae"
+python-versions = "3.8.8"
+content-hash = "f440d677bb8c40d14f8ca8ecc8d693935fa40064ff8c8a52522b3d710deb19c8"
 
 [metadata.files]
 bson = [

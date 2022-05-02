@@ -1,1 +1,1 @@
-web: gunicorn application:initialize_app
+web: gunicorn --bind 0.0.0.0:$PORT "application:initialize_app(testing=False)"

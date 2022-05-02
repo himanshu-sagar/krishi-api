@@ -1,1 +1,1 @@
-web: gunicorn -w 1 -b 0.0.0.0:8088 application:initialize_app(testing=False) --timeout 9600
+web: gunicorn --bind 0.0.0.0:$PORT application:initialize_app(testing=False) --timeout 9600

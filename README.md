@@ -1,11 +1,10 @@
 # krishi-api
 
-- [Krishi - API Heroku](https://krishi-app.herokuapp.com/)
-- [Documentation](https://ninth-cell-83a.notion.site/Krishi-Network-Assignment-c80fe172e4e9454da964f9fcf8ec79da)
+### [Krishi - API Heroku](https://krishi-app.herokuapp.com/)
+### [Documentation](https://ninth-cell-83a.notion.site/Krishi-Network-Assignment-c80fe172e4e9454da964f9fcf8ec79da)
 
 # Steps To Run
 - [Install Poetry](https://python-poetry.org/docs/)
-- 
 - Run These Commands in linux terminal to start app
     
     ```bash

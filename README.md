@@ -1,6 +1,7 @@
 # krishi-api
 
 ### [Krishi - API Heroku](https://krishi-app.herokuapp.com/)
+### [Postman API DOC](https://documenter.getpostman.com/view/15206589/UyrGCZqA)
 
 # Steps To Run
 - [Install Poetry](https://python-poetry.org/docs/)

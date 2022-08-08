@@ -3,6 +3,7 @@
 ### [Krishi - API Heroku](https://krishi-app.herokuapp.com/)
 ### [Postman API DOC](https://documenter.getpostman.com/view/15206589/UyrGCZqA)
 
+[![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 # Steps To Run
 - [Install Poetry](https://python-poetry.org/docs/)
 - Run These Commands in linux terminal to start app
